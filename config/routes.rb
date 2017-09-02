@@ -2,7 +2,9 @@
   Rails.application.routes.draw do
 
 
+
   scope :api do
+    resources :requests
     resources :matches
     resources :leagues
     resources :users, except: [:create]

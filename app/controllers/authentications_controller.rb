@@ -23,6 +23,6 @@ class AuthenticationsController < ApplicationController
 
   private
   def user_params
-    params.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation)
+    params.permit(:username, :first_name, :last_name, :image, :password, :password_confirmation, :email, ranking: [], league_ids: [], match_ids: [])
   end
 end
