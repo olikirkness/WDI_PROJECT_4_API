@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902145455) do
+ActiveRecord::Schema.define(version: 20170903114635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "challenges", force: :cascade do |t|
+    t.bigint "league_id"
+    t.integer "sender_id"
+    t.integer "reciever_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["league_id"], name: "index_challenges_on_league_id"
+  end
 
   create_table "leagues", force: :cascade do |t|
     t.string "title"
@@ -21,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170902145455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "created_by"
+    t.string "club"
   end
 
   create_table "leagues_users", id: false, force: :cascade do |t|
@@ -33,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170902145455) do
     t.datetime "updated_at", null: false
     t.integer "league_id"
     t.text "score"
+    t.boolean "played"
   end
 
   create_table "matches_users", id: false, force: :cascade do |t|
@@ -61,5 +72,6 @@ ActiveRecord::Schema.define(version: 20170902145455) do
     t.text "ranking"
   end
 
+  add_foreign_key "challenges", "leagues"
   add_foreign_key "requests", "leagues"
 end

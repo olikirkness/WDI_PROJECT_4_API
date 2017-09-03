@@ -3,7 +3,9 @@
 
 
 
+
   scope :api do
+    resources :challenges
     resources :requests
     resources :matches
     resources :leagues

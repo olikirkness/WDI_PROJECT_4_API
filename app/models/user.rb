@@ -13,7 +13,9 @@ class User < ApplicationRecord
 
   has_many :recieved_requests, foreign_key: :reciever_id, class_name: "Request"
   has_many :sent_requests, foreign_key: :sender_id, class_name: "Request"
-  
+  has_many :recieved_challenges, foreign_key: :reciever_id, class_name: "Request"
+  has_many :sent_challenges, foreign_key: :sender_id, class_name: "Request"
+
   serialize :ranking
 
 end

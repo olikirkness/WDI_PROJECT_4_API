@@ -9,4 +9,8 @@ class UserSerializer < ActiveModel::Serializer
   has_many :recieved_requests
 
   has_many :sent_requests
+
+  has_many :recieved_challenges
+
+  has_many :sent_challenges
 end
