@@ -46,6 +46,6 @@ class ChallengesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def challenge_params
-      params.require(:challenge).permit(:league_id_id, :sender_id, :reciever_id)
+      params.require(:challenge).permit(:league_id, :sender_id, :reciever_id)
     end
 end
