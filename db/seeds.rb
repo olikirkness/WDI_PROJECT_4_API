@@ -12,9 +12,10 @@ League.destroy_all
 Match.destroy_all
 User.destroy_all
 
-u1 = User.create!(username: "okirkness", email: "oli@kirkness.com", password: "password", password_confirmation: "password" , ranking: [3420, 3139])
-u2 = User.create!(username: "gary", email: "gary@gary.com", password: "password", password_confirmation: "password" , ranking: [4329, 4982])
-u3 = User.create!(username: "joe", email: "joe@joe.com", password: "password", password_confirmation: "password", ranking: [1200, 1623, 1423, 1523, 1613])
+u1 = User.create!(username: "okirkness", email: "oli@kirkness.com", password: "password", password_confirmation: "password" , ranking: [3420, 3139,3192,3207,3281,3254])
+
+u2 = User.create!(username: "gary", email: "gary@gary.com", password: "password", password_confirmation: "password" , ranking: [4429, 4982,4834,4678,4921])
+u3 = User.create!(username: "joe", email: "joe@joe.com", password: "password", password_confirmation: "password", ranking: [1200, 1623, 1423, 1523, 1613,1682,1707])
 u4 = User.create!(username: "Bill", email: "bill@bill.com", password: "password", password_confirmation: "password", ranking: [1853, 1623, 1423, 1523, 1613])
 u5 = User.create!(username: "Mike", email: "mike@mike.com", password: "password", password_confirmation: "password", ranking: [12000, 16203, 14023, 15203, 16103])
 u6 = User.create!(username: "Sam", email: "sam@sam.com", password: "password", password_confirmation: "password", ranking: [2200, 2623, 2423, 2523, 2613])
@@ -23,7 +24,7 @@ l1 = League.create!(title: "Canterbury Squash", image: "http://media.groupspaces
 l2 = League.create!(title: "Paderborner Sc", image: "https://asc-paderborn.de/tl_files/asc/images/bg/default.jpg" , user_ids: [u1.id, u2.id, u3.id], created_by: u2.id)
 l3 = League.create!(title: "Loughborough Squash", image: "http://loughboroughsport.com/au-squash/files/2014/08/web1.png" , user_ids: [u1.id, u2.id, u3.id], created_by: u1.id)
 l4 = League.create!(title: "Joes League", image: "http://www.coolhurst.co.uk/wp-content/uploads/2014/02/SquashDoubles2.jpg", user_ids: [u1.id, u2.id, u3.id], created_by: u3.id)
-l5 = League.create!(title: "Charing Cross", image: "http://www.coolhurst.co.uk/wp-content/uploads/2014/02/SquashDoubles2.jpg", user_ids: [u6.id, u5.id, u4.id], created_by: u3.id)
+l5 = League.create!(title: "Charing Cross", image: "http://www.coolhurst.co.uk/wp-content/uploads/2014/02/SquashDoubles2.jpg", user_ids: [u6.id, u5.id, u4.id], created_by: u6.id)
 
 m1 = Match.create!(user_ids: [u1.id, u2.id], league_id: l2.id, score: [9,3,9,6,9,3], played: true)
 m2 = Match.create!(user_ids: [u1.id, u3.id], league_id: l1.id, score: [11,3,11,6,11,3], played: true)
@@ -54,3 +55,9 @@ Challenge.create(league_id: l3.id, sender_id: u2.id, reciever_id: u1.id)
 Challenge.create(league_id: l4.id, sender_id: u4.id, reciever_id: u3.id)
 Challenge.create(league_id: l5.id, sender_id: u5.id, reciever_id: u3.id)
 Challenge.create(league_id: l5.id, sender_id: u6.id, reciever_id: u3.id)
+Challenge.create(league_id: l2.id, sender_id: u3.id, reciever_id: u1.id)
+Challenge.create(league_id: l2.id, sender_id: u1.id, reciever_id: u3.id)
+Challenge.create(league_id: l3.id, sender_id: u2.id, reciever_id: u1.id)
+Challenge.create(league_id: l5.id, sender_id: u4.id, reciever_id: u3.id)
+Challenge.create(league_id: l4.id, sender_id: u5.id, reciever_id: u3.id)
+Challenge.create(league_id: l2.id, sender_id: u6.id, reciever_id: u3.id)
