@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :first_name, :last_name, :image, :password_digest, :email, :created_leagues, :ranking
+  attributes :id, :username, :first_name, :last_name, :image, :password_digest, :email, :created_leagues, :ranking, :matches
 
   has_many :leagues
 
