@@ -16,7 +16,6 @@ class LeaguesController < ApplicationController
   # POST /leagues
   def create
     @league = League.new(league_params)
-    puts "****************** #{league_params}"
     # @league.users << league_params.user_ids
     if @league.save
       render json: @league, status: :created, location: @league

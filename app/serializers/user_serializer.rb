@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :first_name, :last_name, :image, :password_digest, :email, :created_leagues, :ranking, :matches
+  attributes :id, :username, :first_name, :last_name, :image, :email, :created_leagues, :ranking, :matches, :sent_challenges, :recieved_challenges, :ave_ranking, :current_ranking
 
   has_many :leagues
 
@@ -13,4 +13,30 @@ class UserSerializer < ActiveModel::Serializer
   has_many :recieved_challenges
 
   has_many :sent_challenges
+
+
+  def ave_ranking
+    # puts object.ranking.reduce(:+) / object.ranking.size.to_f, 'AVEEEEEEEEE'
+    # object.ranking.reduce(:+) / object.ranking.size.to_f
+    i = 0
+    total = 0
+    if object.ranking != nil
+      while i < object.ranking.length
+        total = total + object.ranking[i]
+        i = i + 1
+
+      end
+      total/object.ranking.length
+    end
+  end
+
+  def current_ranking
+    
+    if object.ranking != nil
+      puts object.ranking
+      object.ranking.first
+    end
+
+
+  end
 end
