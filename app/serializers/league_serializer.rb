@@ -1,7 +1,7 @@
 class LeagueSerializer < ActiveModel::Serializer
   has_many :users
 
-  attributes :id, :title, :image, :users, :created_by, :league_ave_ranking, :matches, :matches_played
+  attributes :id, :title, :image, :users, :created_by, :league_ave_ranking, :matches, :matches_played, :club
   belongs_to :creator, foreign_key: :created_by, class_name: "User"
   has_many :matches
 

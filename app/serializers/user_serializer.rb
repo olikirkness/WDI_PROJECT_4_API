@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :first_name, :last_name, :image, :email, :created_leagues, :ranking, :matches, :sent_challenges, :recieved_challenges, :ave_ranking, :current_ranking
+  attributes :id, :username, :first_name, :last_name, :image, :email, :created_leagues, :ranking, :matches, :sent_challenges, :recieved_challenges, :ave_ranking, :current_ranking, :matches_won, :created_at
 
   has_many :leagues
 
@@ -31,11 +31,16 @@ class UserSerializer < ActiveModel::Serializer
   end
 
   def current_ranking
-    
+
     if object.ranking != nil
-      puts object.ranking
       object.ranking.first
     end
+
+
+  end
+
+  def win_ratio
+
 
 
   end
