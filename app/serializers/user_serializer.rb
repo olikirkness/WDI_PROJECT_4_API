@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :username, :first_name, :last_name, :image, :email, :created_leagues, :ranking, :matches, :sent_challenges, :recieved_challenges, :ave_ranking, :current_ranking, :matches_won, :created_at
+  attributes :id, :username, :first_name, :last_name, :image, :email, :created_leagues, :ranking, :matches, :sent_challenges, :recieved_challenges, :ave_ranking, :current_ranking, :matches_won, :created_at, :sent_comments
 
   has_many :leagues
 

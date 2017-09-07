@@ -17,5 +17,7 @@ class User < ApplicationRecord
   has_many :recieved_challenges, foreign_key: :reciever_id, class_name: "Challenge"
   has_many :sent_challenges, foreign_key: :sender_id, class_name: "Challenge"
 
+  has_many :sent_comments, foreign_key: :sender_id, class_name: "Comment"
+
   serialize :ranking
 end

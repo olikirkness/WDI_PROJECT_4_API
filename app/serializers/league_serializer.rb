@@ -1,9 +1,10 @@
 class LeagueSerializer < ActiveModel::Serializer
   has_many :users
 
-  attributes :id, :title, :image, :users, :created_by, :league_ave_ranking, :matches, :matches_played, :club
+  attributes :id, :title, :image, :users, :created_by, :league_ave_ranking, :matches, :matches_played, :club, :comments
   belongs_to :creator, foreign_key: :created_by, class_name: "User"
   has_many :matches
+  has_many :comments
 
   def league_ave_ranking
     i = 0

@@ -4,7 +4,9 @@
 
 
 
+
   scope :api do
+    resources :comments
     resources :challenges
     resources :requests
     resources :matches
